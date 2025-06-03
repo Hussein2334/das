@@ -52,60 +52,70 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     .login-container {
       max-width: 400px;
-      margin: 80px auto;
+      margin: 60px auto;
       padding: 2rem;
       background: white;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
     }
 
     .login-container h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
       color: #004080;
+      margin-bottom: 1.5rem;
     }
 
-    .login-container form input {
+    form input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 15px;
-      border-radius: 5px;
+      border-radius: 6px;
       border: 1px solid #ccc;
     }
 
-    .login-container form button {
+    form button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background: #004080;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .login-container form button:hover {
+    form button:hover {
       background: #003366;
     }
 
-    .login-container p {
-      text-align: center;
+    p {
       margin-top: 1rem;
     }
 
-    .login-container p a {
+    p a {
       color: #004080;
       text-decoration: none;
+    }
+
+    p a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
 <div class="login-container">
+  <img src="images/iaa_logo.png" alt="Logo" class="logo" />
   <h2>Login</h2>
   <form method="POST" action="">
-    <input type="email" name="email" placeholder="Email" />
-    <input type="password" name="password" placeholder="Password" />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
     <button type="submit">Login</button>
   </form>
   <p>Don't have an account? <a href="register.php">Register</a></p>

@@ -51,6 +51,7 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <title>User Registration</title>
+    <link rel="icon" href="images/iaa_logo.png" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,9 +67,23 @@ if (isset($_POST['submit'])) {
             box-shadow: 0px 0px 10px #aaa;
         }
 
+        /* Header with logo and text */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .header .icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
         h2 {
-            text-align: center;
             color: #004080;
+            margin: 0;
         }
 
         label {
@@ -101,6 +116,7 @@ if (isset($_POST['submit'])) {
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
         }
 
         input[type="submit"]:hover {
@@ -109,6 +125,7 @@ if (isset($_POST['submit'])) {
 
         p {
             text-align: center;
+            margin-top: 15px;
         }
 
         a {
@@ -120,27 +137,30 @@ if (isset($_POST['submit'])) {
 <body>
 
 <div class="container">
-    <h2>Register</h2>
+    <div class="header">
+        <img src="images/iaa_logo.png" alt="Logo" class="icon" />
+        <h2>Register</h2>
+    </div>
 
     <form method="post" onsubmit="return validateForm()">
         <label>Full Name</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
 
         <label>Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
 
         <label>Employee Number</label>
-        <input type="text" name="emp" id="emp">
+        <input type="text" name="emp" id="emp" required>
 
         <label>Phone</label>
-        <input type="text" name="phone" id="phone">
+        <input type="text" name="phone" id="phone" required>
 
         <label>Gender</label>
-        <input type="radio" name="gender" value="M"> Male
-        <input type="radio" name="gender" value="F"> Female
+        <input type="radio" name="gender" value="M" required> Male
+        <input type="radio" name="gender" value="F" required> Female
 
         <label>Department</label>
-        <select name="department">
+        <select name="department" required>
             <option value="">-- Select Department --</option>
             <?php foreach ($departments as $d): ?>
                 <option value="<?php echo $d['id']; ?>"><?php echo $d['name']; ?></option>
@@ -148,10 +168,10 @@ if (isset($_POST['submit'])) {
         </select>
 
         <label>Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
 
         <label>Confirm Password</label>
-        <input type="password" name="confirm_password" id="confirm_password">
+        <input type="password" name="confirm_password" id="confirm_password" required>
 
         <input type="submit" name="submit" value="Register">
     </form>
